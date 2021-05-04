@@ -3,12 +3,12 @@ pipeline{
     stages{
         stage('Checkout the Server'){
             steps{
-                git 'https://github.com/victorsh01/spring-petclinic-rest.git'
+                git 'https://github.com/fengzse/spring-petclinic-rest.git'
             }
         }
         stage('Checkout the Angular'){
             steps{
-                git 'https://github.com/victorsh01/spring-petclinic-angular.git'
+                git 'https://github.com/fengzse/spring-petclinic-angular.git'
             }
         }
         stage('Para'){
