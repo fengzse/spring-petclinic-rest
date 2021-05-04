@@ -3,21 +3,13 @@ pipeline{
     stages{
         stage('Para'){
             parallel{
-                 stage('Checkout the Server'){
-                     steps{
-                         git 'https://github.com/fengzse/spring-petclinic-rest.git'
-                     }
-                }
+
                  stage('Build and Run the Server'){
                             steps{
                                 sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
                             }
                 }
-                 stage('Checkout the Angular'){
-                            steps{
-                                git 'https://github.com/fengzse/spring-petclinic-angular.git'
-                            }
-                 }
+
                  stage('Run the Frontend'){
                               steps{
                                     sleep(60)
