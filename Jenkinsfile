@@ -9,7 +9,11 @@ pipeline{
                                 sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
                             }
                 }
-
+                 stage('Checkout the Angular'){
+                            steps{
+                                git 'https://github.com/fengzse/spring-petclinic-angular.git'
+                            }
+                 }
                  stage('Run the Frontend'){
                               steps{
                                     sleep(60)
