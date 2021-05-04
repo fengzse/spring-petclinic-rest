@@ -3,7 +3,11 @@ pipeline{
     stages{
         stage('Para'){
             parallel{
-
+                 stage('Checkout the Angular'){
+                       steps{
+                             git 'https://github.com/fengzse/spring-petclinic-angular.git'
+                        }
+                 }
                  stage('Build and Run the Server'){
                             steps{
                                 sh 'mvn spring-boot:run'
