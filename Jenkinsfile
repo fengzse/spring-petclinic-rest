@@ -10,7 +10,7 @@ pipeline{
                 }
                  stage('Build and Run the Server'){
                             steps{
-                                sh 'nohup mvn spring-boot:run'
+                                sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
                             }
                 }
                  stage('Checkout the Angular'){
@@ -21,8 +21,7 @@ pipeline{
                  stage('Run the Frontend'){
                               steps{
                                     sleep(60)
-                                    sh 'curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar'
-                                    sh 'java -jar ./rawhttp.jar serve . -p 4200'
+                                    sh 'cd spring-petclinic-angular/static-content && curl https://jcenter.bintray.com/com/athaydes/rawhttp/rawhttp-cli/1.0/rawhttp-cli-1.0-all.jar -o rawhttp.jar && nohup java -jar ./rawhttp.jar serve . -p 4200 &'
                               }
                 }
                 stage('Robot Framework') {
