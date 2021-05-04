@@ -23,7 +23,7 @@ pipeline{
                 stage('Robot Framework') {
                               steps {
                                     sleep(70)
-                                    sh 'robot --variable BROWSER:headlesschrome -d spring-petclinic-angular/RobotFrameWork/Results  spring-petclinic-angular/RobotFrameWork/Tests'
+                                    sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results  RobotFrameWork/Tests'
                               }
                               post {
                                     always {
