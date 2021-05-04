@@ -10,7 +10,7 @@ pipeline{
                 }
                  stage('Build and Run the Server'){
                             steps{
-                                sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
+                                sh 'nohup mvn spring-boot:run'
                             }
                 }
                  stage('Checkout the Angular'){
