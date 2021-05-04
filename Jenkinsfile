@@ -10,7 +10,7 @@ pipeline{
                 }
                  stage('Build and Run the Server'){
                             steps{
-                                sh "mvnw.cmd spring-boot:run"
+                                sh 'cd spring-petclinic-rest && nohup mvn spring-boot:run &'
                             }
                 }
                  stage('Checkout the Angular'){
@@ -25,7 +25,7 @@ pipeline{
                                     sh 'java -jar ./rawhttp.jar serve . -p 4200'
                               }
                 }
-                stage('Robot Framework System tests with Selenium') {
+                stage('Robot Framework') {
                               steps {
                                     sleep(70)
                                     sh 'robot --variable BROWSER:headlesschrome -d RobotFrameWork/Results  RobotFrameWork/Tests'
