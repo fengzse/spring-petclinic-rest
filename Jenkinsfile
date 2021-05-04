@@ -1,23 +1,23 @@
 pipeline{
     agent any
     stages{
-        stage('Checkout the Server'){
-            steps{
-                git 'https://github.com/fengzse/spring-petclinic-rest.git'
-            }
-        }
-        stage('Checkout the Angular'){
-            steps{
-                git 'https://github.com/fengzse/spring-petclinic-angular.git'
-            }
-        }
         stage('Para'){
             parallel{
-                stage('Build and Run the Server'){
+                 stage('Checkout the Server'){
+                     steps{
+                         git 'https://github.com/fengzse/spring-petclinic-rest.git'
+                     }
+                }
+                 stage('Build and Run the Server'){
                             steps{
                                 sh "mvn spring-boot:run"
                             }
                 }
+                 stage('Checkout the Angular'){
+                            steps{
+                                git 'https://github.com/fengzse/spring-petclinic-angular.git'
+                            }
+                 }
                  stage('Run the Frontend'){
                               steps{
                                     sleep(60)
