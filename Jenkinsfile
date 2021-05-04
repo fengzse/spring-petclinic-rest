@@ -3,9 +3,9 @@ pipeline{
     stages{
         stage('Para'){
             parallel{
-                 stage('Checkout the Angular'){
+                 stage('Checkout the Server'){
                        steps{
-                             git 'https://github.com/fengzse/spring-petclinic-angular.git'
+                             git 'https://github.com/fengzse/spring-petclinic-rest.git'
                         }
                  }
                  stage('Build and Run the Server'){
